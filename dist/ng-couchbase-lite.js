@@ -4,7 +4,7 @@
  *
  * URL: http://developer.couchbase.com/mobile/develop/references/couchbase-lite/rest-api/index.html
  */
-angular.module("ngCouchbaseLite", []).factory("$couchbase", function($q, $http, $rootScope) {
+angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$rootScope", function($q, $http, $rootScope) {
 
     this.databaseUrl = null;
     this.databaseName = null;
@@ -177,4 +177,4 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", function($q, $http, 
 
     return couchbase;
 
-});
+}]);
