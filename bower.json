@@ -1,0 +1,32 @@
+{
+  "name": "ng-couchbase-lite",
+  "main": "./dist/ng-couchbase-lite.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/couchbaselabs/ng-couchbase-lite",
+  "authors": [
+    "Nic Raboy <https://blog.nraboy.com>",
+    "Couchbase <http://www.couchbase.com>"
+  ],
+  "description": "AngularJS wrapper for Couchbase Lite RESTful API endpoints",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "ng-couchbase-lite",
+    "api",
+    "angularjs",
+    "couchbase",
+    "mobile",
+    "apache cordova",
+    "phonegap",
+    "ionic framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

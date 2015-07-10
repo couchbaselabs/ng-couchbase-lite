@@ -1,0 +1,30 @@
+{
+    "name": "ng-couchbase-lite",
+    "version": "0.0.1",
+    "description": "AngularJS wrapper for Couchbase Lite RESTful API endpoints",
+    "author": {
+        "name": "Couchbase, Inc.",
+        "url": "http://www.couchbase.com"
+    },
+    "homepage": "https://www.couchbase.com",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-clean": "~0.6.0",
+        "grunt-contrib-uglify": "~0.5.0",
+        "grunt-contrib-concat": "^0.5.1"
+    },
+    "keywords": [
+        "angularjs",
+        "restful",
+        "api",
+        "couchbase",
+        "mobile",
+        "android",
+        "ios"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "test": "grunt test"
+    }
+}
