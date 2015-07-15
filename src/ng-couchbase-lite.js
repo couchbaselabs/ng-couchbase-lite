@@ -62,10 +62,11 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          *
          * @param    string designDocumentName
          * @param    string viewName
+         * @param    object options
          * @return   promise
          */
-        queryView: function(designDocumentName, viewName) {
-            return this.makeRequest("GET", this.databaseUrl + this.databaseName + "/" + designDocumentName + "/_view/" + viewName);
+        queryView: function(designDocumentName, viewName, options) {
+            return this.makeRequest("GET", this.databaseUrl + this.databaseName + "/" + designDocumentName + "/_view/" + viewName, options);
         },
 
         /*
