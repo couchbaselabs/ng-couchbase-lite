@@ -23,6 +23,7 @@ Note that the databaseUrl is the URL that is returned when using the `cblite.get
 ### Available Commands
 
 ```
+promise database.getDatabase();
 promise database.createDatabase();
 promise database.createDesignDocument(string designDocumentName, object designDocumentViews);
 promise database.createDocument(object json);
