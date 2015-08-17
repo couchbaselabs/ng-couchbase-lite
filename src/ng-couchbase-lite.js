@@ -24,6 +24,16 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
     couchbase.prototype = {
 
         /*
+         * Get a database with a name that was passed in from the constructor method
+         *
+         * @param
+         * @return   promise
+         */
+        getDatabase: function() {
+            return this.makeRequest("GET", this.databaseUrl + this.databaseName);
+        },
+
+        /*
          * Create a new database with a name that was passed in from the constructor method
          *
          * @param
