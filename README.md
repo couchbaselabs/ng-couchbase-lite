@@ -24,10 +24,12 @@ Note that the databaseUrl is the URL that is returned when using the `cblite.get
 
 ```
 promise database.createDatabase();
+promise database.getDatabase();
 promise database.createDesignDocument(string designDocumentName, object designDocumentViews);
 promise database.createDocument(object json);
 promise database.getDesignDocument(string designDocumentName);
 promise database.queryView(string designDocumentName, string viewName);
+promise database.updateDocument(string documentId, string documentRevision, object jsonObject);
 promise database.deleteDocument(string documentId, string documentRevision);
 promise database.getAllDocuments();
 promise database.getDocument();

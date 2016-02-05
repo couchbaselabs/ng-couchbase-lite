@@ -34,6 +34,16 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
         },
 
         /*
+         * Get a database from the name that was passed in from the constructor method
+         *
+         * @param
+         * @return   promise
+         */
+        getDatabase: function() {
+            return this.makeRequest("GET", this.databaseUrl + this.databaseName);
+        },
+
+        /*
          * Create a new design document with views
          *
          * @param    string designDocumentName
@@ -77,6 +87,18 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          */
         createDocument: function(jsonDocument) {
             return this.makeRequest("POST", this.databaseUrl + this.databaseName, {}, jsonDocument);
+        },
+
+        /*
+         * Update a particular document based on its id and revision
+         *
+         * @param    string documentId
+         * @param    string documentRevision
+         * @param    object jsonDocument
+         * @return   promise
+         */
+        updateDocument: function(documentId, documentRevision, jsonDocument) {
+            return this.makeRequest("PUT", this.databaseUrl + this.databaseName + "/" + documentId, {rev: documentRevision}, jsonDocument);
         },
 
         /*
