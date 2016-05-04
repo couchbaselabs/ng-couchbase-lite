@@ -37,6 +37,37 @@ promise database.replicate(string source, string target, boolean continuous);
 void    database.listen();
 ```
 
+### Examples
+
+##### createDatabase
+```
+ // global variable
+ var testDatabase;
+ 
+ if(!window.cblite) { 
+	 alert('Couchbase Lite not installed');  
+ } 
+ else {
+	 cblite.getURL(function(err, url) { 
+		 if(err) {
+			 console.log(err); 
+		 }
+		 else{
+			 testDatabase = new $couchbase(url, appDbName);  
+			 testDatabase.createDatabase().then(function(result) {
+				 var views = setupViews();
+				 testDatabase.createDesignDocument("_design/todo", views);
+				 testDatabase.listen(); 
+			 }, function(error) { 
+				 console.log(err);  
+			 });
+		 } 
+	 }); 
+ }
+
+``` 
+
+
 ## Need Help?
 
 Visit the [Couchbase Forums](https://forums.couchbase.com/) and open a ticket under the mobile section.
