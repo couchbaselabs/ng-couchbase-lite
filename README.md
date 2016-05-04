@@ -42,7 +42,7 @@ void    database.listen();
 ##### createDatabase
 ```
  // global variable
- var testDatabase;
+ var testDatabase = null;
  
  if(!window.cblite) { 
 	 alert('Couchbase Lite not installed');  
