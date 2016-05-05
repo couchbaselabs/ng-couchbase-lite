@@ -1,6 +1,9 @@
 {
   "name": "ng-couchbase-lite",
-  "main": "./dist/ng-couchbase-lite.js",
+  "main": [
+    "./dist/ng-couchbase-lite.js",
+    "./dist/ng-couchbase-lite.min.js"
+  ],
   "version": "0.0.1",
   "homepage": "https://github.com/couchbaselabs/ng-couchbase-lite",
   "authors": [
