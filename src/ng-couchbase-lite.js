@@ -92,11 +92,11 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
         /*
          * Create a new database local document
          *
-         * @param    object jsonDocument
+         * @param    string id , object jsonDocument
          * @return   promise
          */
-        createLocalDocument: function(jsonDocument) {
-            return this.makeRequest("PUT", this.databaseUrl + this.databaseName, {}, jsonDocument);
+        createLocalDocument: function(id,jsonDocument) {
+            return this.makeRequest("PUT", url + appDbName + "/_local/ " + id", {}, jsonDocument);
         },
 
         /*
