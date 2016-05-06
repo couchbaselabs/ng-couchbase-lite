@@ -88,6 +88,16 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
         createDocument: function(jsonDocument) {
             return this.makeRequest("POST", this.databaseUrl + this.databaseName, {}, jsonDocument);
         },
+        
+        /*
+         * Create a new database local document
+         *
+         * @param    string id , object jsonDocument
+         * @return   promise
+         */
+        createLocalDocument: function(id,jsonDocument) {
+            return this.makeRequest("PUT", url + appDbName + "/_local/ " + id", {}, jsonDocument);
+        },
 
         /*
          * Update a particular document based on its id and revision
