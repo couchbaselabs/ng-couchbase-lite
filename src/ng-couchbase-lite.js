@@ -88,16 +88,6 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
         createDocument: function(jsonDocument) {
             return this.makeRequest("POST", this.databaseUrl + this.databaseName, {}, jsonDocument);
         },
-        
-        /*
-         * Create a new database local document
-         *
-         * @param    string id or empty string for auto generated id, object jsonDocument
-         * @return   promise
-         */
-        createLocalDocument: function(id,jsonDocument) {
-            return this.makeRequest("PUT", url + appDbName + "/_local/ " + id", {}, jsonDocument);
-        },
 
         /*
          * Update a particular document based on its id and revision
@@ -140,16 +130,6 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          */
         getDocument: function(documentId) {
             return this.makeRequest("GET", this.databaseUrl + this.databaseName + "/" + documentId);
-        },
-        
-        /*
-         * Get a local document from the database
-         *
-         * @param    string documentId
-         * @return   promise
-         */
-        getLocalDocument: function(documentId) {
-            return this.makeRequest("GET", this.databaseUrl + this.databaseName + "/_local/" + documentId);
         },
 
         /*
