@@ -183,6 +183,16 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
             };
             poller(this.databaseUrl, this.databaseName, 0);
         },
+        
+        /*
+         * retrieve a list of all tasks running on the server
+         *
+         * @param
+         * @return promise
+         */
+        function getActiveTasks() {   
+	        return this.makeRequest("GET", this.databaseUrl + "_active_tasks");
+	    },
 
         /*
          * Make a RESTful request to an endpoint while providing parameters or data or both
