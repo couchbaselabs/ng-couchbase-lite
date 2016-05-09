@@ -64,7 +64,11 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
             var data = {
                 views: designDocumentViews
             };
-            return this.makeRequest("PUT", this.databaseUrl + this.databaseName + "/" + designDocumentName, {}, data);
+            var designPrefix = "";
+            if(designDocumentName.indexOf("_design/") === -1){
+            	designPrefix = "_design/";
+            }
+            return this.makeRequest("PUT", this.databaseUrl + this.databaseName + "/" + designPrefix + designDocumentName, {}, data);
         },
 
         /*
@@ -74,7 +78,11 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          * @return   promise
          */
         getDesignDocument: function(designDocumentName) {
-            return this.makeRequest("GET", this.databaseUrl + this.databaseName + "/" + designDocumentName);
+            var designPrefix = "";
+            if(designDocumentName.indexOf("_design/") === -1){
+            	designPrefix = "_design/";
+            }
+            return this.makeRequest("GET", this.databaseUrl + this.databaseName + "/" + designPrefix + designDocumentName);
         },
 
         /*
