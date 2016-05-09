@@ -32,7 +32,7 @@ promise database.queryView(string designDocumentName, string viewName);
 promise database.updateDocument(string documentId, string documentRevision, object jsonObject);
 promise database.deleteDocument(string documentId, string documentRevision);
 promise database.getAllDocuments();
-promise database.getDocument();
+promise database.getDocument(string documentId);
 promise database.replicate(string source, string target, boolean continuous);
 void    database.listen();
 ```
