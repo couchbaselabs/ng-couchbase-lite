@@ -23,7 +23,7 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
 
     couchbase.prototype = {
 		
-		/*
+	/*
          * returns the database url
          *
          * @param
