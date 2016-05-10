@@ -208,9 +208,9 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          * @param
          * @return promise
          */
-        function getActiveTasks() {   
-	        return this.makeRequest("GET", this.databaseUrl + "_active_tasks");
-	    },
+        getActiveTasks: function () {   
+		return this.makeRequest("GET", this.databaseUrl + "_active_tasks");
+	},
 
         /*
          * Make a RESTful request to an endpoint while providing parameters or data or both
