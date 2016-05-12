@@ -103,7 +103,10 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          * @param    string id , object jsonDocument
          * @return   promise
          */
-        createDocument: function(id,jsonDocument) {
+        createDocument: function(jsonDocument,id) {
+            if(!id){
+            	id = "";
+            }
             return this.makeRequest("POST", this.databaseUrl + this.databaseName + "/" + id, {}, jsonDocument);
         },
         
