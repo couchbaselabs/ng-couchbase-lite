@@ -100,14 +100,11 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
         /*
          * Create a new database document
          *
-         * @param    object jsonDocument, string id (optional)
+         * @param    object jsonDocument
          * @return   promise
          */
-        createDocument: function(jsonDocument,id) {
-            if(!id){
-            	id = "";
-            }
-            return this.makeRequest("POST", this.databaseUrl + this.databaseName + "/" + id, {}, jsonDocument);
+        createDocument: function(jsonDocument,id) { 
+            return this.makeRequest("POST", this.databaseUrl + this.databaseName, {}, jsonDocument);
         },
         
         /*
