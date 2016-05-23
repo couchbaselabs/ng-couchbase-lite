@@ -114,7 +114,7 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          * @return   promise
          */
         createLocalDocument: function(id,jsonDocument) {
-            return this.makeRequest("PUT", url + appDbName + "/_local/ " + id, {}, jsonDocument);
+            return this.makeRequest("PUT", this.databaseUrl + this.databaseName + "/_local/" + id, {}, jsonDocument);
         },
 
         /*
