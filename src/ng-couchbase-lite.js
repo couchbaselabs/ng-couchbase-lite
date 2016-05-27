@@ -234,7 +234,31 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
                 settings.data = data;
             }
             return $http(settings);
-        }
+        },
+
+	/*
+         * Make a RESTful request to an endpoint while providing parameters or data or both
+         *
+         * @param    string method
+         * @param    string url
+         * @param    object params
+         * @param    object data
+         * @return   promise with all of return data (data, status, headers, config)
+         */
+	makeCompleteRequest: function(method, url, params, data) { 
+		var settings = {
+			method: method,
+			url: url,
+			withCredentials: true
+		};
+		if(params) {
+			settings.params = params;
+		}
+		if(data) {
+			settings.data = data;
+		}
+		return $http(settings) 
+	}
 
     };
 
