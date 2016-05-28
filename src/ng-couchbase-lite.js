@@ -212,30 +212,6 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
 		return this.makeRequest("GET", this.databaseUrl + "_active_tasks");
 	},
 
-        /*
-         * Make a RESTful request to an endpoint while providing parameters or data or both
-         *
-         * @param    string method
-         * @param    string url
-         * @param    object params
-         * @param    object data
-         * @return   promise
-         */
-        makeRequest: function(method, url, params, data) { 
-            var settings = {
-                method: method,
-                url: url,
-                withCredentials: true
-            };
-            if(params) {
-                settings.params = params;
-            }
-            if(data) {
-                settings.data = data;
-            }
-            return $http(settings);
-        },
-
 	/*
          * Make a RESTful request to an endpoint while providing parameters or data or both
          *
@@ -243,9 +219,11 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          * @param    string url
          * @param    object params
          * @param    object data
-         * @return   promise with all of return data (data, status, headers, config)
-         */
-	makeCompleteRequest: function(method, url, params, data) { 
+	 * @param    boolean complete 
+         * @return   promise
+        */
+	makeRequest: function(method, url, params, data,complete) {
+		var deferred = $q.defer();
 		var settings = {
 			method: method,
 			url: url,
@@ -257,7 +235,18 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
 		if(data) {
 			settings.data = data;
 		}
-		return $http(settings) 
+		if(complete){
+			return $http(settings);
+		}
+		$http(settings)
+			.success(function(result) {
+			deferred.resolve(result);
+		})
+			.error(function(error) {
+			deferred.reject(error);
+		});
+
+		return deferred.promise;
 	}
 
     };
