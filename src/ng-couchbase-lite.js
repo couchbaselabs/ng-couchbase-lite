@@ -221,7 +221,7 @@ angular.module("ngCouchbaseLite", []).factory("$couchbase", ["$q", "$http", "$ro
          * @param    object data
 	 * @param    boolean complete 
          * @return   promise
-        */
+         */
 	makeRequest: function(method, url, params, data,complete) {
 		var deferred = $q.defer();
 		var settings = {
